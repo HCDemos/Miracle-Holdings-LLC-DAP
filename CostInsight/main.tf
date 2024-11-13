@@ -1,10 +1,10 @@
 terraform {
 
   backend "s3" {
-    bucket               = "miracleholdings-inc"
+    bucket               = "dap-tfc-state"
     workspace_key_prefix = "terraform-states/cost-insight"
     key                  = "terraform.tfstate"
-    region               = "us-west-2"
+    region               = "us-east-1"
   }
   required_providers {
     aws = {
