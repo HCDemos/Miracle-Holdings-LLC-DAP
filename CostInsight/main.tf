@@ -2,7 +2,7 @@ terraform {
 
   backend "s3" {
     bucket               = "dap-tfc-state"
-    workspace_key_prefix = "terraform-states/cost-insight"
+    workspace_key_prefix = "terraform-states/cost-insight/terraform.tfstate"
     key                  = "terraform.tfstate"
     region               = "us-east-1"
   }
