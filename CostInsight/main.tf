@@ -1,15 +1,17 @@
 terraform {
 
-  backend "s3" {
-    bucket               = "dap-tfc-state"
-    workspace_key_prefix = "terraform-states/cost-insight"
-    key                  = "terraform.tfstate"
-    region               = "us-east-1"
-  }
   required_providers {
     aws = {
       version = ">= 5.39.0"
       source  = "hashicorp/aws"
+    }
+  }
+  cloud {
+    organization = "HCDemos"
+    hostname     = "app.terraform.io"
+    workspaces {
+      project = "cost_insight"
+      name    = "cost_insight_default"
     }
   }
 }

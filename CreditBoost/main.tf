@@ -1,14 +1,17 @@
 terraform {
 
-  backend "s3" {
-    bucket = "dap-tfc-state"
-    key    = "terraform-states/credit-boost/terraform.tfstate"
-    region = "us-east-1"
-  }
   required_providers {
     aws = {
       version = ">= 5.39.0"
       source  = "hashicorp/aws"
+    }
+  }
+  cloud {
+    organization = "HCDemos"
+    hostname     = "app.terraform.io"
+    workspaces {
+      project = "credit_boost"
+      name    = "credit_boost_default"
     }
   }
 }
